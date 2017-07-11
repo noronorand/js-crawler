@@ -1,7 +1,7 @@
 I have tried to skip any 3rd party library (except for logging) so there are several hacks to get it in in reasonable time:
 
 1. Google search 
-	- uses webagent (rather than search API). Extensive searches will be detected as "unusual traffic" by google, so I have disabled unit tests (it is safer than to rely on skipTests)
+	- uses browser webagent (rather than search API). Extensive searches will be detected as "unusual traffic" by google, so I have disabled unit tests (it is safer than to rely on skipTests)
 2. HtmlParser
 	- I would pick up some 3rd party library, but here i rely on my limited regex skills. Probably some issues with it and it is missing good unit test working on predownloaded data.
 3. Runner
