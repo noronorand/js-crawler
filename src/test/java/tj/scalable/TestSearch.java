@@ -8,18 +8,15 @@ import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore("tests can block IP for google search")
 public class TestSearch {
 
-	@Before
-	public void setUp() throws Exception {
-	}
+	
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	 
 	@Test
 	public void testSearchAjax10() throws IOException, InterruptedException {
 		String searchTerm = "ajax";
@@ -30,6 +27,7 @@ public class TestSearch {
 		
 	}
 	
+	 
 	@Test
 	public void testSearchAjax50() throws IOException, InterruptedException {
 		String searchTerm = "ajax";
@@ -40,6 +38,7 @@ public class TestSearch {
 		
 	}
 	
+	 
 	@Test
 	public void testSearchJavascriptExample10() throws IOException, InterruptedException {
 		String searchTerm = "javascript examples";
@@ -50,6 +49,7 @@ public class TestSearch {
 		
 	}
 	
+	 
 	@Test
 	public void testSearchJavascriptExample30() throws IOException, InterruptedException {
 		String searchTerm = "javascript examples";

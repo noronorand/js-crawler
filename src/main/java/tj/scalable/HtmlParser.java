@@ -27,8 +27,6 @@ public class HtmlParser {
 	private String startRez = "<h3 class=\"r\"><a href=\"/url?q=";
 	private String endRez = "&amp";
 
-	private String searchRgx = "(class=\\\"r\\\"><a href=\\\"\\/url\\?q=)(\\S*)(&amp)";
-	private String httpUrlRx = "([http|https])(\\S+)(?=&)";
 
 	// js tag patterns
 	private String jsRegex = "<script(\\s+)src(\\S+)(.js)(\\'|\\\")";
@@ -83,25 +81,5 @@ public class HtmlParser {
 	}
 	
 
-	public List<String> googleSearchRegex(String searchTerm, int maxRez) throws IOException {
-
-		Pattern p = Pattern.compile(searchRgx);
-		Pattern pUrl = Pattern.compile(httpUrlRx);
-		List<String> ret = new ArrayList<String>(maxRez);
-		String search = URLEncoder.encode(searchTerm, Charset.defaultCharset().toString());
-		String ss = svcURL + search;
-
-		URL url = new URL(ss);
-		String body = webLoad.loadWebPage(url);
-
-		Matcher matcher = p.matcher(body);
-		while (matcher.find()) {
-			String group = matcher.group();
-			Matcher link = pUrl.matcher(group);
-			System.out.println(link.group());
-		}
-
-		return ret;
-	}
-
+	
 }

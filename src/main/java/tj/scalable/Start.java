@@ -5,9 +5,8 @@ public class Start {
 
 	public static void main(String[] args) {
 
-		int maxRez = 60;
+		int maxRez = 20;
 
-		// basic args check
 		if (args.length == 0) {
 			System.out.println("usage: start.sh searchterm ");
 			System.out.println("e.g. start.sh javascript examples ");
