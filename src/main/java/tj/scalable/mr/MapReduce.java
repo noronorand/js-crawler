@@ -133,11 +133,9 @@ public class MapReduce {
 			searchResults = Arrays.asList(search);
 		}
 
-	
-		Stream<String> sites = searchResults.parallelStream();
 
-		List<Map.Entry<String, Integer>> rezList = sites
-
+		List<Map.Entry<String, Integer>> jsLibCount = searchResults
+				.parallelStream()
 				.map(s -> {
 					Set<String> ret;
 					try {
@@ -152,7 +150,7 @@ public class MapReduce {
 				.collect(new JsCollector());
 
 		int ix = 0;
-		for (Map.Entry<String, Integer> me : rezList) {
+		for (Map.Entry<String, Integer> me : jsLibCount) {
 			System.out.println(me.getKey() + " -> " + me.getValue());
 			if (++ix == 5) {
 				break;
