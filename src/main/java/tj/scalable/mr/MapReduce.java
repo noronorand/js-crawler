@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -63,7 +64,7 @@ public class MapReduce {
 
 		@Override
 		public Set<java.util.stream.Collector.Characteristics> characteristics() {
-			return Collections.emptySet();
+			return EnumSet.of(Characteristics.UNORDERED, Characteristics.CONCURRENT);
 		}
 
 		@Override
