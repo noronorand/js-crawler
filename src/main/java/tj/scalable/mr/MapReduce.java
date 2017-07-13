@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
@@ -102,7 +103,7 @@ public class MapReduce {
 
 		@Override
 		public Supplier<Map<String, Integer>> supplier() {
-			return HashMap<String, Integer>::new;
+			return ConcurrentHashMap<String, Integer>::new;
 		}
 
 	}
@@ -132,9 +133,8 @@ public class MapReduce {
 			searchResults = Arrays.asList(search);
 		}
 
-		searchResults = Arrays.asList(search);
-
-		Stream<String> sites = searchResults.stream();
+	
+		Stream<String> sites = searchResults.parallelStream();
 
 		List<Map.Entry<String, Integer>> rezList = sites
 
@@ -153,7 +153,7 @@ public class MapReduce {
 
 		int ix = 0;
 		for (Map.Entry<String, Integer> me : rezList) {
-			System.out.println(me.getValue() + " -> " + me.getKey());
+			System.out.println(me.getKey() + " -> " + me.getValue());
 			if (++ix == 5) {
 				break;
 			}
